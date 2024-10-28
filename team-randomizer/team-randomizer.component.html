@@ -1,0 +1,23 @@
+<div>
+    <h2>Dragonball Sparking Zero - Randomizzatore di Team</h2>
+  
+    <label for="maxCost">Costo massimo del team:</label>
+    <input id="maxCost" type="number" [(ngModel)]="maxCost" min="9" max="50" />
+  
+    <label>
+      <input type="checkbox" [(ngModel)]="includeGiants" />
+      Includi personaggi giganti
+    </label>
+  
+    <button (click)="randomizeTeam()">Genera Team</button>
+  
+    <h3>Team selezionato:</h3>
+    <ul>
+      <li *ngFor="let character of team">
+        {{ character.name }} (Costo: {{ character.cost }}, Gigante: {{ character.isGiant ? 'Sì' : 'No' }})
+      </li>
+    </ul>
+  
+    <p *ngIf="team.length === 0">Nessun team trovato con il costo specificato. Prova con un diverso costo massimo!</p>
+  </div>
+  
